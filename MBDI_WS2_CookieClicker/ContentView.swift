@@ -1,23 +1,41 @@
-//
-//  ContentView.swift
-//  MBDI_WS2_CookieClicker
-//
-//  Created by Nathan Wilson on 07/02/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var timesClicked = 0
+    @State var isShowingSheet = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        NavigationView{
+            VStack {
+                Button(
+                    action: {
+                        timesClicked += 1
+                        
+                    },
+                    label: {
+                        Image(.cookie)
+                            .resizable(resizingMode: .stretch)
+                            .aspectRatio(contentMode: .fit)
+                    }
+                )
+                Text("You clicked the cookie \(timesClicked) times!")
+                NavigationLink(destination: CreditsView()){
+                    Text("Credits")
+                }.padding()
+                NavigationLink(destination: StoreView(timesClicked: .constant(0))){
+                    Button(
+                        action: {
+                            isShowingSheet = true
+                        }
+                    ){
+                        Text("Store")
+                    }
+                }
+            }.sheet(isPresented: $isShowingSheet, content: {StoreView(timesClicked: $timesClicked)}).navigationBarTitle("Cookie clicker")
+                .padding()
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
 
 #Preview {
     ContentView()

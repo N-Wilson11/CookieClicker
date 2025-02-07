@@ -1,10 +1,3 @@
-//
-//  MBDI_WS2_CookieClickerApp.swift
-//  MBDI_WS2_CookieClicker
-//
-//  Created by Nathan Wilson on 07/02/2025.
-//
-
 import SwiftUI
 
 @main
