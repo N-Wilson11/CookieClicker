@@ -6,7 +6,7 @@ struct CreditsView: View {
         Text("Credits")
             .font(.title)
         ForEach(0...4, id: \.self) { _ in
-            Text(name)
+            Text(name) 
         }
     }
 }

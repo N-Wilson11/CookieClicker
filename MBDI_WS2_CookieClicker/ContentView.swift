@@ -17,7 +17,7 @@ struct ContentView: View {
                             .aspectRatio(contentMode: .fit)
                     }
                 )
-                Text("You clicked the cookie \(timesClicked) times!")
+                Text("You clicked the cookie \(timesClicked) times!!")
                 NavigationLink(destination: CreditsView()){
                     Text("Credits")
                 }.padding()
